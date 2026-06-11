@@ -21,8 +21,9 @@ export interface EvaluatorConfig {
  */
 export async function evaluate(
   options: EvaluateOptions,
-  _config?: EvaluatorConfig
+  config?: EvaluatorConfig
 ): Promise<EvaluationResult> {
+  void config;
   const archetype = options.archetype
     ? (await import("../archetypes/index.js")).getArchetype(options.archetype)
     : detectArchetype(options.cv.content, options.jd?.content);

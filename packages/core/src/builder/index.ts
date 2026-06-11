@@ -19,8 +19,9 @@ export interface BuilderConfig {
  */
 export async function tailor(
   options: TailorOptions,
-  _config?: BuilderConfig
+  config?: BuilderConfig
 ): Promise<TailoredCV> {
+  void config;
   const archetype = options.archetype
     ? (await import("../archetypes/index.js")).getArchetype(options.archetype)
     : detectArchetype(options.cv.content, options.jd.content);
